@@ -1,11 +1,13 @@
 # Salifort-motors-project
 This capstone project is from the advanced google data analytics certificate. It is an opportunity for me to analyze a dataset and build predictive models that can provide insights to the Human Resources (HR) department of a large consulting firm. 
 
+Click this [link](https://www.coursera.org/learn/google-advanced-data-analytics-capstone/ungradedLab/uskOX/activity-course-7-salifort-motors-project-lab/lab?path=%2Fnotebooks%2FActivity_%2520Course%25207%2520Salifort%2520Motors%2520project%2520lab.ipynb) for the Jupyter Notebook version of this project.
+
 # Project workflow
-We would be incoporating the 6 data analysis steps into the PACE project workflow.
+We would incorporate the 6 data analysis steps into the PACE project workflow.
 * P - Plan (Ask, Prepare and Process)
 * A - Analyze (Analyze)
-* C - Construct - build the model 
+* C - Construct - Build the models 
 * E - Execute (Share and Act)
 
 # 1. PLAN
@@ -14,7 +16,7 @@ The first stage of the project workflow is the [Plan stage.](https://github.com/
 The HR department at Salifort Motors wants to take some initiatives to improve employee satisfaction levels at the company. They collected data from employees, but now they don’t know what to do with it. They refer to me as a data analytics professional and ask me to provide data-driven suggestions based on my understanding of the data. 
 
 ## Ask
-They have the following question: what’s likely to make the employee leave the company?
+They have the following question: What’s likely to make the employee leave the company?
 My goals in this project are to analyze the data collected by the HR department and to build a model that predicts whether or not an employee will leave the company.
 If I can predict employees likely to quit, it might be possible to identify factors that contribute to their leaving. Because it is time-consuming and expensive to find, interview, and hire new employees, increasing employee retention will be beneficial to the company.
 
@@ -39,15 +41,15 @@ salary|The employee's salary (U.S. dollars)
 
 # Limitations of the dataset
 * The data was last updated 3 years ago (2021)
-* The salary variable is lacks details. It is grouped categorically (low, medium and high)
+* The salary variable lacks details. It is grouped categorically (low, medium and high)
 
 ## Process
 * I chose Python to perform analysis because python boasts a rich ecosystem of libraries specifically designed for machine learning tasks. Popular libraries like NumPy, Pandas and Scikit-learn. It also has libraries for visualizations such as matplotlib and seaborn.
-* I imported all the packages needed for cleaning and manipulating data
-* I loaded the data set into a dataframe and loaded it
+* I imported all the packages needed for cleaning and manipulating data.
+* I loaded the data set into a dataframe.
 * I displayed the first few rows of the data and then gathered descriptive analysis of the data.
-* I gathered basic information about the data then checking if all the data types are correct and there are no inncorrect data types
-* I renamed the column names for more better understanding
+* There are no inncorrect data types.
+* I renamed the column names for better understanding.
 * There are no missing entries in the data
 * 3,008 rows contain duplicates. That is 20% of the data and I dropped them as needed.
 * I checked for outliers in all the variables and discovered that the tenure variable contained outliers so I handled them by reassigning them, that is, changing the values to ones that fit within the general distribution of the dataset. I created a floor and ceiling at a quantile eg 75% and 25% percentile. Any value above the 75% mark or below the 25% mark are changed to fit within the walls of the IQR(Inter Quantile Range). 
@@ -105,7 +107,7 @@ There are 3 groups of employees that left;
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/number%20of%20project%20histogram.png)
 
 * Employees that stayed are more than employees that left in regards to number of projects
-* The highest number of projects most employees work on are 3 and 4 but
+* The highest number of projects most employees work on are 3 and 4 
 * The highest number of people that left worked on 2 projects
 
 ### Monthly hours by number of projects
@@ -145,7 +147,7 @@ There are many observations in this plot;
 ### Average monthly hours and salary  
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/monthly%20hours%20by%20salary.png)
 
-* Employees with low, medium and high salaries that worked 150 to 260 hours on average all left.
+* The amount of hours employees work do not determine the salary category they fall into because employees with high, medium and low salaries fall in the same range of monthly hours.
 
 
 
@@ -153,7 +155,7 @@ There are many observations in this plot;
 ### Histogram
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/department%20histogram.png)
 
-* Employees in sales department left the most followed by the technical department.
+* Employees in the sales department left the most followed by the technical and support department. 
 
 
 
@@ -161,7 +163,7 @@ There are many observations in this plot;
 ### Histogram
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/work%20accident%20histogram.png)
 
-* A small amount of employees left by work accident
+* A small amount of employees left by work accident.
 
 
 ## Heatmap 
@@ -172,8 +174,8 @@ There are many observations in this plot;
 * Satisfaction level and promotion are negatively correlated with left.
 
 
-  
 
+  
 # 3. CONSTRUCT
 The third stage of the project workflow is the [Construct stage.](https://github.com/domeru369/Salifort-motors-project/blob/main/Construct%20stage.py)
 ## Ethical considerations
@@ -194,7 +196,7 @@ To determine which evaluation metric might be best, consider how the model might
 * False positives: When the model predicts an employee left when in fact the employee stayed
 * False negatives: When the model predicts an employee stayed when in fact the employee left
 
-## What are the ethical implications of building the model?
+## What are the ethical implications of building the model?m,
 * False positives are worse for the company, because time and money spent trying to retain employees who were likely to stay anyway could be better invested in other areas and employees may feel pressured or micromanaged if they are wrongly identified as flight risks.
 * False negatives are worse for the company too, because it can result in higher turnover rates, impacting productivity, knowledge retention, and recruitment costs and if signs of dissatisfaction are missed, they lose the chance to address concerns and potentially prevent departures.
 * The stakes are relatively even. I want to help reduce turnover rates and time and money spent trying to retain customers. F1 score is the metric that places equal weight on true postives and false positives, and so therefore on precision and recall.
@@ -220,30 +222,71 @@ Previous work with this data has revealed that there are ~10,000 employees in th
   
 
 ### Decision Tree Model
-* After hyperparameters tuning, the decision tree model achieved AUC of 96.1%, precision of 96%, recall of 91%, f1-score of 93%, and accuracy of 97%, on the test set. The overall performance of the model is satisfactory but I need to build other powerful models for more accuracy.
-* Satisfaction level, last evaluation, number of project, average monthly hours and enure are the most important features used in building this model respectively.
+* After hyperparameters tuning, the decision tree model achieved AUC of 96.1%, precision of 96%, recall of 91%, f1-score of 93%, and accuracy of 97%, on the test set. The overall performance of the model is satisfactory but I need to build other powerful models for better performance.
+* Satisfaction level, last evaluation, number of project, average monthly hours and tenure are the most important features used in building this model respectively.
 
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/decision%20tree%20confusion%20matrix.png)
 
-* The true negatives of the decision model are 2,500, that means the model predicted accurately that 2,500 did not leave the company . the true positives are 430, which means the model accurately predicted that 430 people left the company. 
-* The false positives are 62 which means 62 people did not leave the company but the model inaccurately predicted that they left. the false negatives are 39, which means 39 employees actually left the company but the model inaccurately predicted that they did not leave.
+* The true negatives of the decision model are 2,500, that means the model predicted accurately that 2,500 did not leave the company .
+* The true positives are 430, which means the model accurately predicted that 430 people left the company. 
+* The false positives are 62 which means 62 people did not leave the company but the model inaccurately predicted that they left.
+* The false negatives are 39, which means 39 employees actually left the company but the model inaccurately predicted that they did not leave.
 
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/decision%20tree.png)
 
-The first line of information in each node is the feature and split point that the model identified as being most predictive. In other words, this is the question that is being asked at that split. For our root node, the question was: Is the customer satisfactory level less than or equal to 0.46?
-
-At each node, if the answer to the question it asks is "yes," the sample would move to the child node on the left. If the answer is "no," the sample would go to the child node on the right.
-
-gini refers to the node's Gini impurity. This is a way of measuring how "pure" a node is. The value can range from 0 to 0.5. A Gini score of 0 means there is no impurity—the node is a leaf, and all of its samples are of a single class. A score of 0.5 means the classes are all equally represented in that node.
-
-samples is simply how many samples are in that node, and value indicates how many of each class are in the node. Returning to the root node, we have value = [7474, 1519]. Notice that these numbers sum to 8,993, which is the number of samples in the node. This tells us that 7,474 employees in this node did not leave (y=0) and 1,519 employees left (y=1).
-
-Lastly, we have class. This tells us the majority class of the samples in each node.
-
-This plot tells us that, if we could only do a single split on a single variable, the one that would most help us predict whether an employee will leave is their satisfactory level.
-
-If we look at the nodes at depth one, we notice that the number of projects and tenure also are both strong predictors (relative to the features we have) of whether or not employees will leave.
+* The first line of information in each node is the feature and split point that the model identified as being most predictive. In other words, this is the question that is being asked at that split. For our root node, the question was: Is the customer satisfactory level less than or equal to 0.46?
+* At each node, if the answer to the question it asks is "yes," the sample would move to the child node on the left. If the answer is "no," the sample would go to the child node on the right.
+* Gini refers to the node's Gini impurity. This is a way of measuring how "pure" a node is. The value can range from 0 to 0.5. A Gini score of 0 means there is no impurity—the node is a leaf, and all of its samples are of a single class. A score of 0.5 means the classes are all equally represented in that node.
+* Samples is simply how many samples are in that node, and value indicates how many of each class are in the node. Returning to the root node, we have value = [7474, 1519]. Notice that these numbers sum to 8,993, which is the number of samples in the node. This tells us that 7,474 employees in this node did not leave (y=0) and 1,519 employees left (y=1).
+* This plot tells us that, if we could only do a single split on a single variable, the one that would most help us predict whether an employee will leave is their satisfactory level.
+* If we look at the nodes at depth one, we notice that the number of projects and tenure also are both strong predictors (relative to the features we have) of whether or not employees will leave.
 
 
 ### Random Forest Model
+* The random forest model emerged as the CHAMPION MODEL.
+* The model is 98.41% accurate.
+* The precision score is 97.61% meaning that the model was good at predicting false positives.
+* The model was also good at predicting false negatives as the recall score was 92.71%, the harmonic mean of the precision and recall score is 95.1%.
+* The auc score is 96.1 meaning that the model's predictions are 96.1% correct.
+  
+![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/random%20forest%20confusion%20matrix.png)
+
+* The true negatives of the random forest model are 2000, that means the model predicted accurately that 2000 did not leave the company .
+* The true positives are 370, which means the model accurately predicted that 370 people left the company.
+* The false positives are 9 which means 9 people did not leave the company but the model inaccurately predicted that they left.
+* The false negatives are 29, which means 29 employees actually left the company but the model inaccurately predicted that they did not leave.
+* In the random forest model, satisfaction level was the most important feature that was used in prediction followed by last evaluation, number of projects, average monthly hours and tenure.
+
+
+### XGBoost Model
+* The xgboost model is 98% accurate.
+* The precision score is 97.17% meaning that the model was good at predicting false positives.
+* The model was also good at predicting false negatives as the recall score was 90.79%.
+* The harmonic mean of the precision and recall score is 93%. The overall performance of the model is satisfactory but the rf f1 score is better.
+
+![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/table.jpeg)
+
+
+## Recommendations
+The models and the feature importances extracted from the models confirm that employees at the company are overworked. 
+To retain employees, the following recommendations could be presented to the stakeholders:
+* Investigate reasons behind such long hours for dissatisfied employees. Are they struggling to meet unrealistic deadlines? Are they under-resourced? Implement strategies to reduce workload or improve efficiency for these employees.
+* Conduct exit interviews or surveys to understand why employees with moderate satisfaction and less monthly hours left. Explore factors like lack of growth opportunities, recognition issues, or company culture.
+* Conduct stay interviews with satisfied employees who are at risk of leaving (e.g., those with high satisfaction but moderate hours). This might reveal underlying concerns or areas for improvement before they leave.
+* For low performers, address performance issues through targeted training or mentorship. For high performers working long hours, investigate workload distribution and consider strategies like project delegation or hiring additional staff to prevent burnout.
+* Focus on identifying and promoting high-performing employees with the potential to boost retention.
+* Analyze project allocation to ensure employees are challenged but not overloaded. Implement strategies like job rotation or skill development opportunities to prevent boredom or stagnation for those with fewer projects.
+* Develop targeted strategies for different tenure groups. Implement strong onboarding programs for new hires to improve engagement and satisfaction. For employees in the third and fourth year, explore opportunities for growth or skill development to prevent stagnation. Foster a positive work environment that retains long-tenured employees.
+* Conduct a salary review to ensure competitive compensation across all positions. Consider merit-based raises or bonuses to recognize high performance and incentivize retention.
+* Investigate reasons for high turnover in specific departments eg sales department. Conduct surveys or focus groups to understand departmental challenges and develop strategies to address them.
+* While accidents don't seem to be a major factor, prioritize safety protocols and employee well-being to prevent future incidents.
+
+### NEXT STEPS
+Deeper Dives:
+- Analyze Specific Departments: Focus on departments with high turnover (Sales and Technical) to understand their unique challenges. Conduct targeted surveys or focus groups within these departments to gather more specific information.
+- Performance Reviews: Investigate the relationship between performance reviews and satisfaction levels. Are there biases in the evaluation process? Do low performers receive adequate feedback and support for improvement?
+- Compensation Analysis: Conduct a more detailed analysis of salaries, bonuses, and benefits. Are there any pay gaps based on gender, race, or experience? Do the benefits packages address employee needs and preferences?
+
+
+
 
