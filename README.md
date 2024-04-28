@@ -196,7 +196,7 @@ To determine which evaluation metric might be best, consider how the model might
 * False positives: When the model predicts an employee left when in fact the employee stayed
 * False negatives: When the model predicts an employee stayed when in fact the employee left
 
-## What are the ethical implications of building the model?m,
+## What are the ethical implications of building the model?
 * False positives are worse for the company, because time and money spent trying to retain employees who were likely to stay anyway could be better invested in other areas and employees may feel pressured or micromanaged if they are wrongly identified as flight risks.
 * False negatives are worse for the company too, because it can result in higher turnover rates, impacting productivity, knowledge retention, and recruitment costs and if signs of dissatisfaction are missed, they lose the chance to address concerns and potentially prevent departures.
 * The stakes are relatively even. I want to help reduce turnover rates and time and money spent trying to retain customers. F1 score is the metric that places equal weight on true postives and false positives, and so therefore on precision and recall.
@@ -234,7 +234,7 @@ Previous work with this data has revealed that there are ~10,000 employees in th
 
 ![image](https://github.com/domeru369/Salifort-motors-project/blob/main/Data%20visualizations/decision%20tree.png)
 
-* The first line of information in each node is the feature and split point that the model identified as being most predictive. In other words, this is the question that is being asked at that split. For our root node, the question was: Is the customer satisfactory level less than or equal to 0.46?
+* The first line of information in each node is the feature and split point that the model identified as being most predictive. In other words, this is the question that is being asked at that split. For our root node, the question was: Is the employee satisfactory level less than or equal to 0.46?
 * At each node, if the answer to the question it asks is "yes," the sample would move to the child node on the left. If the answer is "no," the sample would go to the child node on the right.
 * Gini refers to the node's Gini impurity. This is a way of measuring how "pure" a node is. The value can range from 0 to 0.5. A Gini score of 0 means there is no impurity—the node is a leaf, and all of its samples are of a single class. A score of 0.5 means the classes are all equally represented in that node.
 * Samples is simply how many samples are in that node, and value indicates how many of each class are in the node. Returning to the root node, we have value = [7474, 1519]. Notice that these numbers sum to 8,993, which is the number of samples in the node. This tells us that 7,474 employees in this node did not leave (y=0) and 1,519 employees left (y=1).
